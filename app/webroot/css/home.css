@@ -1,0 +1,607 @@
+#container{
+	background: none;
+	border: 0;
+}
+
+/*=======================================================*/
+/*== Scroller ===========================================*/
+/*=======================================================*/
+
+#scroller{
+	background-color: #444;
+	background-image: radial-gradient(transparent, rgba(0, 0, 0, 0.6));
+	padding-top: 0;
+}
+
+#scroller > section{
+	height: 340px;
+	width: 960px;
+}
+
+#scroller .photostream > section{
+	background-color: rgba(0, 0, 0, 0.3);
+	font-size: 0;
+}
+
+@media (-webkit-min-device-pixel-ratio:0) {
+
+#scroller .photostream > section{
+	margin-top: -1px;
+}
+
+}
+
+#scroller .photostream > section > a{
+	display: inline-block;
+	height: 105px;
+	padding: 0 6px 6px 0;
+	text-decoration: none;
+	width: 153px;
+}
+
+#scroller .photostream > section:first-child > a{
+	padding-top: 6px;
+}
+
+#scroller .photostream > section > a:first-child{
+	padding-left: 6px;
+}
+
+#scroller .photostream > section > a > span{
+	background: rgba(0, 0, 0, 0.8);
+	color: #ddd;
+	display: none;
+	font-size: 13px;
+	left: 6px;
+	line-height: 19.5px;
+	margin-top: 6px;
+	padding: 33px 0;
+	position: absolute;
+	text-align: center;
+	width: 948px;
+	z-index: 20;
+}
+
+#scroller .photostream > section:last-child > a > span{
+	margin-top: -216px;
+}
+
+#scroller .photostream > section > a:hover > span{
+	display: block;
+}
+
+#scroller .photostream > section > a:hover > span:hover{
+	display: none;
+}
+
+#scroller .photostream > section > a > div{
+	border: 2px solid rgba(255, 255, 255, 0.5);
+	box-shadow: 0 0 2px #000;
+	-moz-box-shadow: 0 0 2px #000;
+	-webkit-box-shadow: 0 0 2px #000;
+	height: 101px;
+	overflow: hidden;
+	transition: border-color 0.2s;
+	-moz-transition: border-color 0.2s;
+	-webkit-transition: border-color 0.2s;
+	width: 149px;
+}
+
+#scroller .photostream > section > a > div > img{
+	height: 112px;
+	opacity: 0.7;
+	transition: opacity 0.2s;
+	-moz-transition: opacity 0.2s;
+	-webkit-transition: opacity 0.2s;
+	width: 149px;
+}
+
+#scroller .photostream:hover > section > a > div{
+	border-color: rgba(255, 255, 255, 0.3);
+}
+
+#scroller .photostream:hover > section > a:hover > div{
+	border-color: rgba(236, 200, 56, 0.7);
+}
+
+#scroller .photostream:hover > section > a > div > img{
+	opacity: 0.3;
+}
+
+#scroller .photostream:hover > section > a:hover > div > img{
+	opacity: 1;
+}
+
+#scroller > nav{
+	bottom: 12px;
+	right: 12px;
+}
+
+#scroller > div{
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 15;
+}
+
+#scroller > div > div{
+	height: 340px;
+	left: 0;
+	position: absolute;
+	top: 0;
+}
+
+body > article{
+	padding-top: 0;
+}
+
+#scroller > nav > ul > li{
+	float: left;
+}
+
+#scroller > nav > ul > li > a{
+	background: rgba(255, 255, 255, 0.5);
+	border-radius: 12px;
+	color: #333;
+	display: block;
+	font-size: 10px;
+	font-weight: bold;
+	height: 13px;
+	line-height: 12px;
+	margin-left: 6px;
+	padding: 4px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	transition: background-color 0.2s, color 0.2s;
+	-moz-transition: background-color 0.2s, color 0.2s;
+	-webkit-transition: background-color 0.2s, color 0.2s;
+	width: 12px;
+}
+
+#scroller > nav > ul > li > a:hover{
+	background: #fff;
+}
+
+#scroller > nav > ul > li > a.active{
+	background: #b01825;
+	color: #fff;
+}
+
+#scroller > nav > ul > li.prev > a,
+#scroller > nav > ul > li.next > a{
+	background: url(../img/sprite.png) no-repeat;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	height: 280px;
+	margin: 0;
+	opacity: 0.5;
+	padding: 0;
+	position: absolute;
+	text-indent: -999em;
+	transition: opacity 0.2s;
+	-moz-transition: opacity 0.2s;
+	-webkit-transition: opacity 0.2s;
+	top: -277px;
+	width: 40px;
+}
+
+#scroller > nav > ul > li.prev > a:hover,
+#scroller > nav > ul > li.next > a:hover{
+	opacity: 1;
+}
+
+#scroller > nav > ul > li.prev > a{
+	background-position: -390px 124px;
+	right: 900px;
+}
+
+#scroller > nav > ul > li.next > a{
+	background-position: -430px 124px;
+	right: -4px;
+}
+
+#scroller > nav > ul > li.control > a{
+	background-image: url(../img/sprite.png);
+	background-repeat: no-repeat;
+	text-indent: -999em;
+}
+
+#scroller > nav > ul > li.control > a.paused{
+	background-position: -142px -53px;
+}
+
+#scroller > nav > ul > li.control > a.playing{
+	background-position: -162px -53px;
+}
+
+/*=======================================================*/
+/*== Features ===========================================*/
+/*=======================================================*/
+
+#features{
+	margin-bottom: 6px;
+	overflow: hidden;
+}
+
+.feature{
+	background: #65776f;
+	background-image: -moz-linear-gradient(-45deg, rgba(0, 0, 0, 0.3), transparent);
+	background-image: -webkit-linear-gradient(-45deg, rgba(0, 0, 0, 0.3), transparent);
+	color: #fff;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4d000000', endColorstr='#00000000');
+	line-height: 16px;
+	margin-top: 6px;
+	margin-bottom: -300px;
+	padding: 6px 9px 9px;
+	padding-bottom: 309px;
+}
+
+.feature.news{
+	/*background-color: #375c80;*/
+	margin-right: 24px;
+}
+
+.feature.my-adventure{
+	/*background-color: #778c82;*/
+	margin-left: -18px;
+	margin-right: -18px;
+}
+
+.feature.be-social{
+	/*background-color: #578c57;*/
+	margin-left: 24px;
+}
+
+.feature > header > h1{
+	font-size: 14px;
+	letter-spacing: 1px;
+	line-height: 22px;
+	margin: 0 0 6px;
+}
+
+.feature.my-adventure > header > h1{
+}
+
+.feature > footer{
+	float: right;
+}
+
+.feature.news > footer > a, #events .last > a{
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 2px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+	color: #fff;
+	display: inline-block;
+	font-size: 11px;
+	font-weight: bold;
+	line-height: 14px;
+	margin: 3px 0;
+	padding: 1px 3px;
+	text-decoration: none;
+}
+
+.feature.news > footer > a:hover{
+	background: #fff;
+	color: #33577b;
+	color: #47544e;
+}
+
+.feature > section > ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.feature > section > ul > li{
+	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+	border-top: 1px solid rgba(255, 255, 255, 0.25);
+	margin: 0;
+	padding: 0.5em 0;
+}
+
+.feature > section > ul > li:first-child{
+	border-top: 0;
+	padding-top: 0;
+}
+
+.feature > section > ul > li:last-child{
+	border-bottom: 0;
+	padding-bottom: 0;
+}
+
+.feature.news li a, .feature.be-social li a{
+	display: block;
+}
+
+.feature h2 a, .feature li a{
+	color: #fff;
+	text-decoration: none;
+}
+
+.feature h2 a:hover, .feature li a:hover{
+	color: #ffd700;
+	text-decoration: underline;
+}
+
+.feature.be-social > footer > a{
+	background: url(../img/sprite.png) no-repeat -214px -32px;
+	display: inline-block;
+	height: 16px;
+	margin: 3px 0;
+	outline: none;
+	text-indent: -999em;
+	width: 16px;
+}
+
+.feature.be-social > footer > a.twitter{
+	background-position: -234px -32px;
+}
+
+.feature.be-social > footer > a.photostream{
+	background-position: -254px -32px;
+}
+
+.feature.be-social > footer > a.youtube{
+	background-position: -274px -32px;
+}
+
+/*=======================================================*/
+/*== My Adventure =======================================*/
+/*=======================================================*/
+
+#my-adventure{
+}
+
+#my-adventure > section{
+	height: 126px;
+}
+
+#my-adventure > section > ul > li > a{
+	float: left;
+	margin-right: 6px;
+}
+
+#my-adventure > section > ul > li > a > img{
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	box-shadow: 0 0 3px -1px #000;
+	-moz-box-shadow: 0 0 3px -1px #000;
+	-webkit-box-shadow: 0 0 3px -1px #000;
+	float: left;
+	height: 102px;
+	padding: 1px;
+	width: 136px;
+}
+
+#my-adventure > section > ul > li > a:hover > img{
+	border-color: #ffd700;
+}
+
+#my-adventure > section > ul > li > h2{
+	font-size: 13px;
+	margin: 0 0 3px;
+}
+
+#my-adventure > section > ul > li > p{
+	margin: 6px 0;
+}
+
+#my-adventure > nav{
+	bottom: 0;
+	left: 0;
+	line-height: 8px;
+	text-align: center;
+	width: 100%;
+}
+
+#my-adventure > nav > ul > li{
+	display: inline-block;
+}
+
+#my-adventure > nav > ul > li > a{
+	display: block;
+	height: 20px;
+	text-indent: -999em;
+	width: 16px;
+}
+
+#my-adventure > nav > ul > li > a > span{
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 8px;
+	display: block;
+	height: 8px;
+	left: 4px;
+	position: relative;
+	top: 6px;
+	transition: background-color 0.2s;
+	-moz-transition: background-color 0.2s;
+	-webkit-transition: background-color 0.2s;
+	width: 8px;
+}
+
+#my-adventure > nav > ul > li > a.active > span{
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+/*=======================================================*/
+/*== Generic Item =======================================*/
+/*=======================================================*/
+
+section.generic > section{
+	vertical-align: middle;
+}
+
+section.generic h1{
+	font-size: 17px;
+	letter-spacing: 3px;
+	line-height: 32px;
+	margin: 0;
+	text-align: center;
+}
+
+section.generic h2{
+	font-size: 13px;
+	line-height: 16px;
+	margin: 0 9px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+section.generic h2 > a{
+	text-decoration: none;
+}
+
+section.generic h2 > a:hover{
+	color: #fff;
+}
+
+section.generic p{
+	line-height: 16px;
+	margin: 0 9px;
+}
+
+section.generic p > a{
+	font-weight: bold;
+	text-decoration: none;
+}
+
+section.generic p > a:hover{
+	text-decoration: underline;
+}
+
+.feature > header > h1, section.generic h1{
+	color: #fff;
+	font-weight: normal;
+	text-shadow: 0 0 0 #fff, 0 1px 2px #333;
+}
+
+/*=======================================================*/
+/*== Breaking ===========================================*/
+/*=======================================================*/
+
+#breaking{
+	margin-bottom: 6px;
+	padding-top: 6px;
+}
+
+#breaking .first{
+	background: #333;
+}
+
+#breaking .last{
+	background: #c9c7ba;
+	border: 1px solid #acaa9c;
+	border-left: 0;
+	margin-left: -1px;
+	padding-top: 9px;
+	padding-bottom: 9px;
+}
+
+#breaking h1{
+	line-height: 52px;
+}
+
+#breaking h2 > a{
+	color: #333;
+}
+
+#breaking h2 > a:hover{
+	text-decoration: underline;
+}
+
+/*=======================================================*/
+/*== Events =============================================*/
+/*=======================================================*/
+
+#events{
+	background-color: #a6212d;
+	padding: 9px 0;
+}
+
+#events .first{
+	border-right: 1px dashed #d78b92;
+	margin-right: -1px;
+}
+
+#events .last{
+	border-left: 1px dashed #d78b92;
+	margin-left: -1px;
+	text-align: center;
+}
+
+#events h2 > a{
+	color: #fff;
+	font-weight: normal;
+}
+
+#events h2 > a:hover{
+	color: #ffd700;
+	text-decoration: underline;
+}
+
+#events p{
+	color: #fff;
+}
+
+#events p > a{
+	color: #ebc739;
+}
+
+#events .last > a{
+	margin: 8px 0;
+}
+
+#events .last > a:hover{
+	background: #fff;
+	color: #c61f26;
+}
+
+/*=======================================================*/
+/*== Quick Links ========================================*/
+/*=======================================================*/
+
+#quick-links{
+	margin-top: 6px;
+}
+
+#quick-links ul{
+	font-size: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#quick-links ul > li > a{
+	border-left: 1px solid #ce2028;
+	color: #d02129;
+	display: block;
+	font-size: 11px;
+	font-weight: bold;
+	line-height: 14px;
+	padding: 0 0.5em;
+	text-decoration: none;
+}
+
+#quick-links ul > li > a:hover{
+	text-decoration: underline;
+}
+
+#quick-links ul.left > li:first-child > a{
+	border-left: 0;
+	padding-left: 0;
+}
+
+#quick-links ul.right > li:last-child > a{
+	padding-right: 0;
+}
+
+/*=======================================================*/
+/*== Compatibility ======================================*/
+/*=======================================================*/
+
+#scroller { background-image: -moz-radial-gradient(transparent, rgba(0, 0, 0, 0.6)); background-image: -webkit-radial-gradient(transparent, rgba(0, 0, 0, 0.6)); }

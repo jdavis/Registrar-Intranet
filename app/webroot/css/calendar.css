@@ -1,0 +1,96 @@
+.center {
+	text-align: center;
+}
+
+#calendars {
+	width: 675px;
+	margin: 0 auto;
+}
+
+ol.calendar {
+	margin: 0 auto 0;
+	clear: both;
+	display: block;
+	min-height: 200px;
+	padding: 0;
+	width: 840px;
+}
+
+.calendar li {
+	list-style: none;
+}
+
+.calendar #week-day ul li {
+	height: 1.6em;
+	line-height: 1.6em;
+	color: red;
+	text-align: center;
+	background-color: #d72222;
+	color: white;
+	font-weight: bold;
+	border-left: none;
+	border-right: none;
+	padding: 0 3px;
+	border-bottom: 4px solid black;
+}
+
+.calendar li li {
+	border: 1px solid #e1e1e1;
+	width: 9em;
+	height: 9em;
+	float: left;
+	background-color: #FFFAF1;
+	/*margin: .2em;*/
+	padding: .2em;
+	overflow: auto;
+}
+
+.calendar li li.today {
+	background-color: white;
+}
+	
+.calendar li li:hover {
+	background-color: white;
+}
+
+.calendar li li p {
+	font-size:.7em;display:block;
+}
+
+.calendar li li ol {
+	width:auto;
+}
+.calendar li li ul li, .calendar li li ol li {
+	font-size: .7em;
+	display: block;
+	height: auto;
+	width: auto;
+	background: none;
+	margin: 0;
+	padding: .2em 0;
+	float: none;
+}
+
+.calendar-event, .calendar-link {
+	display: block;
+}
+
+
+.calendar #next-month li, .calendar #previous-month li {
+	background-color: #fff1d8;
+}
+
+table.mini-calendar {
+	float: left;
+	margin: 1em 1em;
+	width: 200px;
+	height: 220px;
+}
+
+table.mini-calendar > thead > tr > th {
+	text-align: center;
+}
+
+#hidden-staff {
+	
+}

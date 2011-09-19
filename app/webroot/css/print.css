@@ -1,0 +1,38 @@
+#header {
+	display: none;
+}
+
+#footer {
+	display: none;
+}
+
+#container {
+	border: none;
+	margin: 0;
+}
+
+img {
+	display: none;
+}
+
+#content {
+	background-color: white;
+	border: none;
+}
+
+.print {
+	display: inherit;
+}
+
+.nonprint {
+	display: none;
+}
+
+table.print {
+	display: table;
+}
+
+.payPeriod td {
+	border-top: 1px solid #e1e1e1;
+	padding:1em 0;
+}

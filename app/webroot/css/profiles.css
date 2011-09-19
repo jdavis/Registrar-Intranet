@@ -1,0 +1,25 @@
+#photo-upload > img {
+	float: left;
+	border-radius: 3px;
+	background: #f4f3e8;
+	border: 1px solid #ccc;
+	margin: 0 0 6px 10em;
+	padding: 3px;
+}
+
+#photo-upload > form {
+	margin-top: 7em;
+	float: left;
+}
+
+#photo-upload > form > div > label {
+	width: 5em;
+}
+
+#photo-upload > form > div.submit {
+	margin-left: 7.4em;
+}
+
+#emergency-contacts {
+	display: none;
+}
