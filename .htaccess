@@ -1,0 +1,12 @@
+PubcookieAppID "IntraRegistrar"
+PubcookieInactiveExpire -1
+PubcookieHardExpire 36000
+AuthType NetID
+Require isuacl intraregistrar-access
+
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	
+	RewriteRule    ^$ app/webroot/    [L]
+	RewriteRule    (.*) app/webroot/$1 [L]
+</IfModule>
