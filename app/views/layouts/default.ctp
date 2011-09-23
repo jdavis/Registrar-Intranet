@@ -72,7 +72,8 @@
 	<div id="footer">
 		Ames, IA 50011-2028, (515) 294-2223<br />
 		The Office of Registrar, <a href="mailto:registrar@iastate.edu">registrar@iastate.edu</a>.<br />
-		Copyright &copy; 1995-<? echo date("Y"); ?>, Iowa State University of Science and Technology. All rights reserved.
+		Copyright &copy; 1995-<? echo date("Y"); ?>, Iowa State University of Science and Technology. All rights reserved.<br/>
+		Commit.
 	</div>
 	<?php #debug($this); ?>
 </div>
