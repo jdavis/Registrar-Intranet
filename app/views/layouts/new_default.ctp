@@ -244,6 +244,7 @@
 					Copyright &copy; 1995-2011, Iowa State University of Science and Technology.
 					All rights reserved. 
 				</p> 
+				<p>Commit</p>
 			</section>
 		</section> 
 	</footer> 
