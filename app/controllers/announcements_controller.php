@@ -41,10 +41,10 @@ class AnnouncementsController extends AppController {
 		$this->select_menu('views', 'Newest');
 		
 		// Filter the announcements so that we only see ones created
-		// in the last two days and haven't expired.
+		// in the last five days and haven't expired.
 		$options = array(
 			'conditions' => array(
-				'Announcement.created >' => date('Y-m-d H:i:s', strtotime('-2 day')),
+				'Announcement.created >' => date('Y-m-d H:i:s', strtotime('-5 day')),
 				'Announcement.expiration >' => date('Y-m-d H:i:s'),
 			),
 			'order' => array(
