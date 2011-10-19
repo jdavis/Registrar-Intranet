@@ -27,7 +27,6 @@ class PagesController extends AppController {
 		
 		$options = array(
 			'conditions' => array(
-				'Announcement.created >' => date('Y-m-d H:i:s', strtotime('-2 day')),
 				'Announcement.expiration >' => date('Y-m-d H:i:s'),
 			),
 			'order' => array(

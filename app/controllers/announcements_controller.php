@@ -6,7 +6,6 @@ class AnnouncementsController extends AppController {
 		// Add a menu
 		$this->add_menu('views', array(
 			'Newest' => '/announcements/',
-			'Active' => '/announcements/active/',
 			'Archived' => '/announcements/archives/',
 		));
 		
@@ -44,7 +43,7 @@ class AnnouncementsController extends AppController {
 		// in the last five days and haven't expired.
 		$options = array(
 			'conditions' => array(
-				'Announcement.created >' => date('Y-m-d H:i:s', strtotime('-5 day')),
+				//'Announcement.created >' => date('Y-m-d H:i:s', strtotime('-5 day')),
 				'Announcement.expiration >' => date('Y-m-d H:i:s'),
 			),
 			'order' => array(
@@ -63,44 +62,6 @@ class AnnouncementsController extends AppController {
 		$this->render('list');
 	}
 	
-	function active($page = 1) {
-		// Setup the view information for this action.
-		$this->layout = 'new_default';
-		$this->set('title_for_layout', 'Active Announcements');
-		
-		$this->sub_nav_title = 'Active Announcements';
-		
-		$this->add_button('Add an Announcement', '/announcements/add/');
-		
-		$this->select_menu('views', 'Active');
-		
-		// Since we want the active Announcements
-		// we only find the ones that expire after today.
-		$options = array(
-			'conditions' => array(
-				'Announcement.expiration >' => date('Y-m-d H:i:s'),
-			),
-			'order' => array(
-				'Announcement.created DESC',
-			),
-		);
-		
-		$this->set('announcements', $this->Announcement->find('all', $options));
-		
-		// For pagination.
-		$this->set('page', $page);
-		
-		// Blah, legacy code. This will go away once we move to the new homepage.
-		$announcements = $this->Announcement->find('all', $options);
-		if(isset($this->params['requested'])) {
-			return $announcements;
-		} else {
-			$this->set('announcements', $announcements);
-		}
-		
-		// Use the list view as well.
-		$this->render('list');
-	}
 	
 	function archives($page = 1) {
 		// Setup the view information for this action.
@@ -142,10 +103,6 @@ class AnnouncementsController extends AppController {
 		
 		$this->add_menu('newest', array(
 			'Newest' => '/announcements/',
-		));
-		
-		$this->add_menu('active', array(
-			'Active' => '/announcements/active/',
 		));
 		
 		$this->add_menu('archives', array(
