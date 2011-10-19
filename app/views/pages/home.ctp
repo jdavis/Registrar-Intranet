@@ -29,10 +29,10 @@
 				No New Announcements
 			</p>
 			<p class="description">
-				There have been no new Announcements posted in the last two days.
+				There have been no new Announcements posted recently.
 			</p>
 			<p>
-				Be sure to check the <a href="/announcements/active/">active announcements</a> or <a href="/announcements/archives/">archives</a> if you are looking for an old announcement.
+				Be sure to check the <a href="/announcements/archives/">archives</a> if you are looking for an old announcement.
 			</p>
 		</div>
 <?php	endif; ?>

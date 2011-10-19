@@ -24,15 +24,9 @@
 <?php	endforeach; ?>
 
 <?php	if (count($announcements) == 0): ?>
-<?php		if ($this->action == 'index'): ?>
 <?php			$title = 'No New Announcements'; ?>
-<?php			$message = 'There have been no new Announcements posted in the last five days.'; ?>
-<?php			$link = 'Be sure to check the <a href="/announcements/active/">active announcements</a> or <a href="/announcements/archives/">archives</a> if you are looking for an old announcement.'; ?>
-<?php		else: ?>
-<?php			$title = 'No Active Announcements'; ?>
-<?php			$message = 'There are no active Announcements at this time.'; ?>
-<?php			$link = 'Be sure to check the <a href="/announcements/archives/">archives</a> if you are looking for an old announcement.'; ?>
-<?php		endif; ?>
+<?php			$message = 'There have been no new Announcements at this time.'; ?>
+<?php			$link = 'Be sure to check the <a href="/announcements/active/">archives</a> or <a href="/announcements/archives/">archives</a> if you are looking for an old announcement.'; ?>
 		<div class="details">
 			<p class="caption">
 				<?php echo $title; ?>
