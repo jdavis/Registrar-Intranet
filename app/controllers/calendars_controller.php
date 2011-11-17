@@ -1,5 +1,6 @@
 <?php
 class CalendarsController extends AppController {
+	
 	function beforeFilter() {
 		parent::beforeFilter();
 		
@@ -95,6 +96,7 @@ class CalendarsController extends AppController {
 		
 		$calendar_dates = $this->retrieve_events($month, $year);
 		$this->set('dates', $calendar_dates);
+		
 	}
 	
 	function year($month = 0, $year = 0) {
@@ -119,6 +121,7 @@ class CalendarsController extends AppController {
 		
 		$this->set('month', $month);
 		$this->set('year', $year);
+
 	}
 	
 	function edit() {
@@ -137,6 +140,7 @@ class CalendarsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Calendar->save($this->data);
 		}
+		
 	}
 	
 	private function calendar_info($month, $year) {

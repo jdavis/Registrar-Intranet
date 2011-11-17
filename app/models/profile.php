@@ -28,5 +28,16 @@ class Profile extends AppModel {
 		# Therefore it won't work with our model association above in our belongsTo and hasMany.
 		$this->virtualFields['full_name'] = sprintf('CONCAT(%s.first_name, " ", %s.last_name)', $this->alias, $this->alias);
 	}
+	
+
+	// Finds all profiles that are on the mailing list
+	// and that have given an email
+	function findAllOnEmailList(){
+	 $emailNotProvided = $this->findAllByEmail('null');
+	 
+	 $onListWithEmail = $this->find('all', array('conditions' => array('Profile.email !=' => $emailNotProvided, 'Profile.mail_list' => '1' )));
+
+	 return $onListWithEmail;
+	}
 
 }
