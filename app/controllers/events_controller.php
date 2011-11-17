@@ -57,6 +57,8 @@ class EventsController extends AppController {
 			
 			if ($this->Event->save($this->data)) {
 				$this->Session->setFlash('The Event has been saved.', 'default', array('class' => 'success'));
+				$this->sendUpdateEmail();
+				#$this->set('newEvent', $this->data);
 				$this->swerve('/calendars');
 			}
 		}
@@ -267,4 +269,22 @@ class EventsController extends AppController {
 		
 		return $staff_of_the_day;
 	}
+	
+		private function sendUpdateEmail(){
+		#$addedEvent = $this->data;
+		$recipients = ClassRegistry::init('Profile')->findAllOnEmailList();
+		foreach($recipients as $recipient){
+		$email = $recipient['Profile']['email'];
+		$this->Email->from = '[INTRA]Office of the Registrar Intranet <donotreply@registrar.edu>';
+		$this->Email->to = $email;
+		$this->Email->subject = 'Intranet Calendar Update';
+		$this->Email->template = 'update_message';
+		$this->Email->sendAs = 'both';
+		$this->Email->delivery = 'mail';
+		$this->Email->send();
+	#	$this->set('addedEvent', $addedEvent);
+		$this->Email->reset();
+
+			}	
+		}
 }

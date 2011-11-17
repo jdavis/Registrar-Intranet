@@ -5,9 +5,9 @@ class FeedbackController extends AppController {
 		// Setup the view information for this action.
 		$this->layout = 'new_default';
 	
-		$this->back_link('Back to the Previous Page', '/');
-		#$this->Email->from    = 'joshuad@iastate.edu';
-		#$this->Email->to      = 'joshuad@iastate.edu';
+		#$this->back_link('Back to the Previous Page', '/');
+		#$this->Email->from    = 'ajsykes@iastate.edu';
+		#$this->Email->to      = 'ajsykes@iastate.edu';
 		#$this->Email->subject = 'Test';
 		#$this->Email->send('blah dee blah');
 		if (!empty($this->data)) {

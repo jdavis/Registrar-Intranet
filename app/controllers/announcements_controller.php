@@ -142,6 +142,7 @@ class AnnouncementsController extends AppController {
 			if ($this->Announcement->save($this->data)) {
 				$this->Session->setFlash('The Event has been saved.', 'default', array('class' => 'success'));
 				$this->swerve('/calendars');
+				
 			}
 		}
 		
