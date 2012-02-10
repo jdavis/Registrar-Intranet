@@ -14,6 +14,14 @@ class DocumentsController extends AppController {
 			'2013-2014' => array('start' => '/documents/', 'end' => '2013-2014'),
 		));
 		
+		$this->add_menu('tags', array(
+			'All' => array('start' => '/documents/', 'end' => 'All'),
+			'Forms-Employee' => array('start' => '/documents/', 'end' => 'Forms-Employee'),
+			'Procedures' => array('start' => '/documents/', 'end' => 'Procedures'),
+			'Policies' => array('start' => '/documents/', 'end' => 'Policies'),
+			'Emergency' => array('start' => '/documents/', 'end' => 'Emergency'),
+		));
+		
 		// Set up our default breadcrumbs for the Controller
 		$this->add_sub_nav('Home', '/');
 		$this->add_sub_nav('Documents', '/documents');
@@ -54,7 +62,7 @@ class DocumentsController extends AppController {
 		); 
 	}
 	
-	function index($year = '2011-2012') {
+	function index($year = '2011-2012', $tag = 'All') {
 		// Setup the view information for this action.
 		$this->layout = 'new_default';
 		$this->set('title_for_layout', 'Documents');
@@ -62,9 +70,13 @@ class DocumentsController extends AppController {
 		$this->sub_nav_title = 'Documents for ' . $year;
 		
 		$this->add_button('Upload a Document', '/documents/upload/');
+				
+	//	$this->select_menu('tags', $tag);
+	//	$this->menu_params('tags', 'index/');		
 		
 		$this->select_menu('years', $year);
 		$this->menu_params('years', 'index/');
+		
 		
 		// Filter the Documents so that we only see ones for the selected year.
 		$options = array(
@@ -78,6 +90,9 @@ class DocumentsController extends AppController {
 		$this->set('documents', $this->Document->find('all', $options));
 		
 		$this->set('year', $year);
+		
+		$this->set('tags', $tag);
+		
 	}
 	
 	function upload() {

@@ -7,12 +7,20 @@
 			)); ?>
 			
 			<?php echo $form->input('year', array(
-				'label' => 'Catalog Year',
+				'label' => 'Calender Year',
 				'options' => $school_years,
-				'selected' => '2011-2012',
+				'selected' => '2012-2013',
 			)); ?>
 			
 			<?php echo $form->input('description'); ?>
+			
+		
+			<?php #Enable once working on forms filter
+				/* echo $form->input('tag', array(
+				'label' => 'Department',
+				'options' => array('Forms-Employee', 'Procedures', 'Policies', 'Emergency'),
+				'selected' => 'Forms-Employee'
+				)); */?>
 			
 			<?php echo $form->input('file', array(
 				'type'=>'file'

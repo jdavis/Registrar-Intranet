@@ -40,6 +40,9 @@
 	<div class="sidebar">
 		<h2>Weather</h2>
 		<?php echo $this->element('weather', array('cache'=>'15 min'));?>
+		<h2>Important Information</h2>
+		<h3>Spring Break Hours (March 12-16)</h3>
+		<p><strong></br>Office of the Registrar - 7:30 a.m. - 4 p.m.</br></br>Student Answer Center - Closed</br></br></br></strong></p>
 		<h2><a href="/quotes/">Quote of the Day</a></h2>
 		<?php echo $this->element('quote');?>
 		<h2><a href="/words/">Word of the Day</a></h2>
