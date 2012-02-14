@@ -15,12 +15,11 @@
 			<?php echo $form->input('description'); ?>
 			
 		
-			<?php #Enable once working on forms filter
-				/* echo $form->input('tag', array(
+			<?php echo $form->input('tag', array(
 				'label' => 'Department',
 				'options' => array('Forms-Employee', 'Procedures', 'Policies', 'Emergency'),
 				'selected' => 'Forms-Employee'
-				)); */?>
+				)); ?>
 			
 			<?php echo $form->input('file', array(
 				'type'=>'file'

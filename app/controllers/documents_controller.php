@@ -67,31 +67,45 @@ class DocumentsController extends AppController {
 		$this->layout = 'new_default';
 		$this->set('title_for_layout', 'Documents');
 		
-		$this->sub_nav_title = 'Documents for ' . $year;
+		$this->sub_nav_title = 'Documents for ' . $year . ' and ' . $tag;
 		
 		$this->add_button('Upload a Document', '/documents/upload/');
 				
-	//	$this->select_menu('tags', $tag);
-	//	$this->menu_params('tags', 'index/');		
+		$this->select_menu('tags', $tag);
+		$this->menu_params('tags', 'index/'.$year.'/');		
 		
 		$this->select_menu('years', $year);
 		$this->menu_params('years', 'index/');
 		
 		
-		// Filter the Documents so that we only see ones for the selected year.
+		// Filter the Documents so that we only see ones for the selected year and department tag.
+		
+		if($tag == 'All'){
 		$options = array(
 			'conditions' => array(
 				'Document.year' => $year,
 				'Document.version' => 0,
-			),
-		);
+					),
+				);
+		}else{
+		$options = array(
+			'conditions' => array(
+				'Document.year' => $year,
+				'Document.tags' => $tag,
+				'Document.version' => 0,
+					),
+				);
+			}
+	
 		
 		// Give them to the view.
 		$this->set('documents', $this->Document->find('all', $options));
 		
 		$this->set('year', $year);
 		
-		$this->set('tags', $tag);
+		$this->set('tag', $tag);
+
+		
 		
 	}
 	

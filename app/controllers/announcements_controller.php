@@ -141,6 +141,7 @@ class AnnouncementsController extends AppController {
 			
 			if ($this->Announcement->save($this->data)) {
 				$this->Session->setFlash('The Event has been saved.', 'default', array('class' => 'success'));
+				$this->sendUpdateEmail();
 				$this->swerve('/calendars');
 				
 			}
@@ -285,4 +286,22 @@ class AnnouncementsController extends AppController {
 		// Use view that are similar.
 		$this->render('archive-delete');
 	}
+	
+	private function sendUpdateEmail(){
+		#$addedEvent = $this->data;
+		$recipients = ClassRegistry::init('Profile')->findAllOnEmailList();
+		foreach($recipients as $recipient){
+		$email = $recipient['Profile']['email'];
+		$this->Email->from = '[INTRA]Office of the Registrar Intranet <donotreply@registrar.edu>';
+		$this->Email->to = $email;
+		$this->Email->subject = 'Intranet Announcement Update';
+		$this->Email->template = 'update_message';
+		$this->Email->sendAs = 'both';
+		$this->Email->delivery = 'mail';
+		$this->Email->send();
+	#	$this->set('addedEvent', $addedEvent);
+		$this->Email->reset();
+
+			}	
+		}
 }
