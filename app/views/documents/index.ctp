@@ -12,6 +12,7 @@
 				<?php echo $document['Document']['description']; ?> 
 			</p>
 			<div class="link-controls">
+				<strong><?php echo $document['Document']['tags']; ?></strong>
 				<a class="button" href="/documents/download/<?php echo $document['Document']['id']; ?>">download</a>
 				<?php /*<a class="button" href="/documents/update/<?php echo $document['Document']['id']; ?>">update</a> */ ?>
 			</div>
@@ -23,7 +24,7 @@
 				No Documents Found
 			</p>
 			<p class="description">
-				There are no Documents for the <?php echo $year; ?> school year.
+				There are no Documents for the <?php echo $year; ?> school year under <?php echo $tag; ?> Department(s).
 			</p>
 		</div>
 <?php	endif; ?>
