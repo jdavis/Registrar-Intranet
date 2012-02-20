@@ -23,12 +23,11 @@
 </div>
 <?php else: ?>
 <div class="side">
-	<h1>Staff of the Day</h1>
 		<ul>
-			<li><strong>Monday</strong> - Judy, Diane</li>
-			<li><strong>Tuesday</strong>  - Laura, Jonathon</li>
+			<li><strong>Monday</strong> - Judy and Diane</li>
+			<li><strong>Tuesday</strong>  - Laura and Jonathon</li>
 			<li><strong>Wednesday</strong>  - Deanna</li>
-			<li><strong>Thursday</strong>  - Char</li>
+			<li><strong>Thursday</strong>  - Karen and Char</li>
 			<li><strong>Friday</strong>  - Denise</li>
 		</ul>
 </div>
