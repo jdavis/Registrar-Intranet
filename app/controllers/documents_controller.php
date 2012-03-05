@@ -85,7 +85,7 @@ class DocumentsController extends AppController {
 		$tagNum = -1;
 		if($tag == 'Forms-Employee'){
 			$tagNum = 0;
-		}else if($tag == 'Policy-Procedures'){
+		}else if($tag == 'Policy-Procedure'){
 			$tagNum = 1;
 		}else{
 			$tagNum = 2;
