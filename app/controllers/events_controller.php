@@ -132,6 +132,7 @@ class EventsController extends AppController {
 			$end_time = date('Y-m-d H:i:s', mktime(23, 59, 59, $month, $day, $year));
 		}
 		
+		
 		// These options will filter out the Events that are in the
 		// Staff of the Day calendar and only on the given day.
 		$options = array(
@@ -142,9 +143,12 @@ class EventsController extends AppController {
 			),
 		);
 		
+		
+
 		// Use the options above in the find.
 		$current_list = $this->Event->find('all', $options);
-	
+		Debugger::dump($current_list);
+
 		# If people were submitted to the form, we need to process them.
 		if (!empty($this->data)) {
 			// Sanely check to see if the list is given.

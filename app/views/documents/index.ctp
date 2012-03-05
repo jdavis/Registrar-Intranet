@@ -12,7 +12,13 @@
 				<?php echo $document['Document']['description']; ?> 
 			</p>
 			<div class="link-controls">
-				<strong><?php echo $document['Document']['tags']; ?></strong>
+				<strong><?php if($document['Document']['tags'] == 0){
+						echo "Forms-Employees";
+						}else if($document['Document']['tags'] == 1){
+						echo "Policy-Procedure";
+						}else if($document['Document']['tags'] == 2){
+						echo "Emergency";
+						};?></strong>
 				<a class="button" href="/documents/download/<?php echo $document['Document']['id']; ?>">download</a>
 				<?php /*<a class="button" href="/documents/update/<?php echo $document['Document']['id']; ?>">update</a> */ ?>
 			</div>
@@ -24,7 +30,7 @@
 				No Documents Found
 			</p>
 			<p class="description">
-				There are no Documents for the <?php echo $year; ?> school year under <?php echo $tag; ?> Department(s).
+				There are no Documents labeled under <?php echo $tag; ?> Department(s).
 			</p>
 		</div>
 <?php	endif; ?>

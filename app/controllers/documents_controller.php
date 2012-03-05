@@ -5,20 +5,20 @@ class DocumentsController extends AppController {
 		parent::beforeFilter();
 		
 		// Add menus
-		$this->add_menu('years', array(
-			'2008-2009' => array('start' => '/documents/', 'end' => '2008-2009'),
-			'2009-2010' => array('start' => '/documents/', 'end' => '2009-2010'),
-			'2010-2011' => array('start' => '/documents/', 'end' => '2010-2011'),
-			'2011-2012' => array('start' => '/documents/', 'end' => '2011-2012'),
-			'2012-2013' => array('start' => '/documents/', 'end' => '2012-2013'),
-			'2013-2014' => array('start' => '/documents/', 'end' => '2013-2014'),
-		));
+		//	$this->add_menu('years', array(
+		//	'2008-2009' => array('start' => '/documents/', 'end' => '2008-2009'),
+		//	'2009-2010' => array('start' => '/documents/', 'end' => '2009-2010'),
+		//	'2010-2011' => array('start' => '/documents/', 'end' => '2010-2011'),
+		//	'2011-2012' => array('start' => '/documents/', 'end' => '2011-2012'),
+		//	'2012-2013' => array('start' => '/documents/', 'end' => '2012-2013'),
+		//	'2013-2014' => array('start' => '/documents/', 'end' => '2013-2014'),
+		//));
 		
 		$this->add_menu('tags', array(
 			'All' => array('start' => '/documents/', 'end' => 'All'),
 			'Forms-Employee' => array('start' => '/documents/', 'end' => 'Forms-Employee'),
-			'Procedures' => array('start' => '/documents/', 'end' => 'Procedures'),
-			'Policies' => array('start' => '/documents/', 'end' => 'Policies'),
+			'Policy-Procedure' => array('start' => '/documents/', 'end' => 'Policy-Procedure'),
+			//'Policies' => array('start' => '/documents/', 'end' => 'Policies'),
 			'Emergency' => array('start' => '/documents/', 'end' => 'Emergency'),
 		));
 		
@@ -62,36 +62,49 @@ class DocumentsController extends AppController {
 		); 
 	}
 	
-	function index($year = '2011-2012', $tag = 'All') {
+	//function index($year = '2011-2012', $tag = 'All') {
+	function index($tag = 'All') {
 		// Setup the view information for this action.
 		$this->layout = 'new_default';
 		$this->set('title_for_layout', 'Documents');
 		
-		$this->sub_nav_title = 'Documents for ' . $year . ' and ' . $tag;
+		//$this->sub_nav_title = 'Documents for ' . $year . ' and ' . $tag;
+		$this->sub_nav_title = 'Documents for ' . $tag;
+
 		
 		$this->add_button('Upload a Document', '/documents/upload/');
 				
 		$this->select_menu('tags', $tag);
-		$this->menu_params('tags', 'index/'.$year.'/');		
+		//$this->menu_params('tags', 'index/'.$year.'/');		
 		
-		$this->select_menu('years', $year);
-		$this->menu_params('years', 'index/');
+		$this->select_menu('tags', $tag);
+		$this->menu_params('tags', 'index/');
 		
+		//define the tag specified by the user in terms of a number (since tags is saved as a number
+		//in the database
+		$tagNum = -1;
+		if($tag == 'Forms-Employee'){
+			$tagNum = 0;
+		}else if($tag == 'Policy-Procedures'){
+			$tagNum = 1;
+		}else{
+			$tagNum = 2;
+		}
 		
-		// Filter the Documents so that we only see ones for the selected year and department tag.
+		// Filter the Documents so that we only see ones for the selected department tag.
 		
 		if($tag == 'All'){
 		$options = array(
 			'conditions' => array(
-				'Document.year' => $year,
+				//'Document.year' => $year,
 				'Document.version' => 0,
 					),
 				);
 		}else{
 		$options = array(
 			'conditions' => array(
-				'Document.year' => $year,
-				'Document.tags' => $tag,
+				//'Document.year' => $year,
+				'Document.tags' => $tagNum,
 				'Document.version' => 0,
 					),
 				);
@@ -101,7 +114,7 @@ class DocumentsController extends AppController {
 		// Give them to the view.
 		$this->set('documents', $this->Document->find('all', $options));
 		
-		$this->set('year', $year);
+		//$this->set('year', $year);
 		
 		$this->set('tag', $tag);
 
@@ -117,7 +130,7 @@ class DocumentsController extends AppController {
 		$this->back_link('Back to the Documents', '/documents');
 		
 		// Helps in using the same view as edit
-		$this->set('form_name', 'Upload a New Document');
+		$this->set('form_name', 'Upload a Document');
 		$this->set('form_save', 'Upload Document');
 		$this->set('form_close', 'Discard the Document');
 		
@@ -144,11 +157,11 @@ class DocumentsController extends AppController {
 			
 				copy($tmp_path, $this->save_dir . $tmp_name);
 				$this->Session->setFlash('The Document has been uploaded.', 'default', array('class' => 'success'));
-				#$this->swerve('/documents');
+				$this->swerve('/documents');
 			}
 		}
 		
-		$this->set('school_years', $this->school_years);
+		#$this->set('school_years', $this->school_years);
 		
 		$this->render('upload-update');
 	}
