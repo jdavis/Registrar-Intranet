@@ -6,18 +6,13 @@
 				'size' => 40,
 			)); ?>
 			
-			<?php echo $form->input('year', array(
-				'label' => 'Calender Year',
-				'options' => $school_years,
-				'selected' => '2012-2013',
-			)); ?>
 			
 			<?php echo $form->input('description'); ?>
 			
 		
-			<?php echo $form->input('tag', array(
+			<?php echo $form->input('tags', array(
 				'label' => 'Department',
-				'options' => array('Forms-Employee', 'Procedures', 'Policies', 'Emergency'),
+				'options' => array('Forms-Employee', 'Policy-Procedures', 'Emergency'),
 				'selected' => 'Forms-Employee'
 				)); ?>
 			
