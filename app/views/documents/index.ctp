@@ -20,6 +20,7 @@
 						echo "Emergency";
 						};?></strong>
 				<a class="button" href="/documents/download/<?php echo $document['Document']['id']; ?>">download</a>
+				<a class="button" href="/documents/delete/<?php echo $document['Document']['id']; ?>">delete</a>				
 				<?php /*<a class="button" href="/documents/update/<?php echo $document['Document']['id']; ?>">update</a> */ ?>
 			</div>
 		</div>
