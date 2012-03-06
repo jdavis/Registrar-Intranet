@@ -106,7 +106,15 @@
 						array(
 							'class' => 'right'
 						)
-					); ?>
+					);
+					//Added delete event in, if not stable remove down to php end tag and put after semicolon above
+						echo $html->link(
+						'Delete this event',
+						'/events/delete/'.$event['Event']['id'],
+						array(
+							'class' => 'right'
+						)
+					);?>
 <?php			endif; ?>
 					</div>
 <?php			endforeach; ?>

@@ -195,4 +195,20 @@ class DocumentsController extends AppController {
 		$this->set($options);
 		$this->view = 'Media';
 	}
+	
+	function delete($id = 0){
+		
+		$document = $this->Document->read(null, $id);
+		if (empty($document)){
+			$this->Session->setFlash('This file does not exist.');
+			$this->redirect(array('action'=>'index'));
+		}
+		$this->Document->delete($id, false);
+		
+		$this->Session->setFlash('The file was deleted successfully');
+		$this->swerve('/documents/');
+		
+		
+		
+	}
 }

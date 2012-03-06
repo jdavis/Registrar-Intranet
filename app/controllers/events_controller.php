@@ -272,4 +272,11 @@ class EventsController extends AppController {
 		
 		return $staff_of_the_day;
 	}
+	
+	function delete($id = 0){
+		
+		$this->Event->delete($id, false);
+		$this->Session->setFlash('The event was deleted successfully');
+		$this->swerve('/calendars/');
+	}
 }
