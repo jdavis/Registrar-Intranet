@@ -43,8 +43,8 @@
 		<h2>Staff of the Day</h2>
 		<?php echo $this->element('sotd');?>
 		<h2><a href="/announcements/view/91">Important Information</a></h2>
-		<h3>Spring Break Hours (March 12-16)</h3>
-		<p><strong></br>Office of the Registrar - 7:30 a.m. - 4 p.m.</br></br>Student Answer Center - Closed</br></br></br></strong></p>
+		<h3>VEISHEA (April 16-21)</h3>
+		<p><strong></br><a href="http://www.veishea.iastate.edu/">http://www.veishea.iastate.edu/</a></br></br></br></strong></p>
 		<h2><a href="/quotes/">Quote of the Day</a></h2>
 		<?php echo $this->element('quote');?>
 		<h2><a href="/words/">Word of the Day</a></h2>
