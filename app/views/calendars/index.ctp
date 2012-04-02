@@ -59,18 +59,17 @@
 <?php						for($i = 1; $i <= $days_in_month; $i++): ?>
 								<li<?php echo ($today == $i ? ' class="today"' : ''); ?>>
 									<strong><?php echo $i; ?></strong><br/>
-<?php							foreach($dates[$i - 1] as $date): ?>
-<?php
-									$rel = "cal" . $date['Event']['calendar_id'];
-									$style = "background-color:" . $calendars[$date['Event']['calendar_id'] - 1]['Calendar']['background_color'] . ";";
-									$style .= "color:" . $calendars[$date['Event']['calendar_id'] - 1]['Calendar']['text_color'] . ";";
-									$style .= "text-decoration:none;";
+<?php							foreach($dates[$i - 1] as $date):
+										$rel = "cal" . $date['Event']['calendar_id'];
+										$style = "background-color:" . $calendars[$date['Event']['calendar_id'] - 1]['Calendar']['background_color'] . ";";
+										$style .= "color:" . $calendars[$date['Event']['calendar_id'] - 1]['Calendar']['text_color'] . ";";
+										$style .= "text-decoration:none;";
 									
-									$href = "/events/view/" . $date['Event']['id'];
-									$id = "event" . $date['Event']['id'];
+										$href = "/events/view/" . $date['Event']['id'];
+										$id = "event" . $date['Event']['id'];
 									
-									$class = ($date['Event']['calendar_id'] == 1) ? 'calendar-link' : 'calendar-event';?>	
-									<?php echo "<a class=\"$class\" rel=\"$rel\" href=\"$href\" style=\"$style\" id=\"$id\">{$date['Event']['title']}</a>";?> 
+										$class = ($date['Event']['calendar_id'] == 1) ? 'calendar-link' : 'calendar-event';?>	
+										<?php echo "<a class=\"$class\" rel=\"$rel\" href=\"$href\" style=\"$style\" id=\"$id\">{$date['Event']['title']}</a>";?>
 <?php							endforeach; ?>
 								</li>
 <?php						endfor; ?>
@@ -85,6 +84,8 @@
 							</ul>
 						</li>
 					</ol>
+			 
+			 
 <?php		foreach($dates as $day): ?>
 <?php			foreach($day as $event): ?>
 <?php				if ($event['Event']['calendar_id'] == 1) continue; ?>
@@ -108,13 +109,13 @@
 						)
 					);
 					//Added delete event in, if not stable remove down to php end tag and put after semicolon above
-					//	echo $html->link(
-						//'Delete this event',
-						//'/events/delete/'.$event['Event']['id'],
-						//array(
-						//	'class' => 'right'
-						//)
-					//);?>
+						echo $html->link(
+						'Delete this event',
+						'/events/delete/'.$event['Event']['id'],
+						array(
+							'class' => 'right'
+						)
+					);?>
 <?php			endif; ?>
 					</div>
 <?php			endforeach; ?>

@@ -100,7 +100,7 @@ class CalendarsController extends AppController {
 	}
 	
 	function year($month = 0, $year = 0) {
-		// Resolve our parameters
+		// Resolve our parametersss
 		if (!$month) $month = date('n');
 		if (!$year) $year = date('Y');
 		
@@ -177,6 +177,9 @@ class CalendarsController extends AppController {
 		# The variable we'll use to put our events.
 		$days = array();
 		
+		#Array to hold dates that span multiple days
+		$extra_days = array();
+		
 		# Go through all of the events and associate them with
 		# their respective days for the view.
 		for($f = 0, $e = 0; $f < $total_days; $f++) {
@@ -188,11 +191,17 @@ class CalendarsController extends AppController {
 				
 				$event = $events[$e]['Event'];
 				
+				// if($e != 0){
+					// if ($events[$e-1]['end_time'] >= $day_start):	
+						// array_push($days[$f], $events[$e-1]);
+						
+					// endif;					
+				// }
 				# See if the next event on the array starts during this day.
 				if ($event['start_time'] >= $day_start && $event['start_time'] <= $day_end) {
 					# It was a match, add it to the array for the day.
 					array_push($days[$f], $events[$e]);
-					
+				
 					# Increase the event index.
 					$e += 1;
 				} else {
