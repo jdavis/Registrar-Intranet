@@ -280,5 +280,6 @@ class EventsController extends AppController {
 			$this->redirect(array('action'=>'index'));
 		}
 		$this->Event->delete($id, false);
+		this->swerve();
 	}
 }
