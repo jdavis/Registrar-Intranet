@@ -1,5 +1,6 @@
 <div class="main-window">
 	<div class="content">
+	<h4>Documents loaded/deleted from this page are copies of the original. Documents must be reloaded if updated.</h4>
 <?php	foreach($documents as $document): ?>
 		<div class="details">
 			<p class="caption">
