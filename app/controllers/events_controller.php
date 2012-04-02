@@ -274,8 +274,7 @@ class EventsController extends AppController {
 	}
 	
 	function delete($id = 0){
-
-		$this->Event->delete($id, false);
+		$this->Event->delete($id, true);
 		$this->swerve();
 	}
 }
