@@ -274,7 +274,11 @@ class EventsController extends AppController {
 	}
 	
 	function delete($id = 0){
-		
+		$event = $this->Document->read(null, $id);
+		if (empty($event)){
+			$this->Session->setFlash('This event does not exist.');
+			$this->redirect(array('action'=>'index'));
+		}
 		$this->Event->delete($id, false);
 		$this->Session->setFlash('The event was deleted successfully');
 		$this->swerve('/calendars/');
