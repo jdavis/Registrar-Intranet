@@ -103,7 +103,7 @@ class UtilHelper extends AppHelper {
 		if ($date_start) {
 			return $date_start . ' at ' . date('g:i A', $date);
 		} else {
-			return date('D, M j, Y', $date) . ' at ' . date('g:i A', $date);
+			return date('D, M j', $date) . ' at ' . date('g:i A', $date);
 		}
 	}
 	
@@ -116,7 +116,7 @@ class UtilHelper extends AppHelper {
 		$until = strtotime($until);
 		
 		$date_string = $this->nice_date($from);
-		if (date('Y-m-d', $from) != date('Y-m-d', $from)) {
+		if (date('Y-m-d', $from) != date('Y-m-d', $until)) {
 			$date_string .= ' - ' . $this->nice_date($until);
 		} else {
 			$date_string .= ' - ' . date('g:i A', $until);
