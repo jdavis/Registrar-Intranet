@@ -91,7 +91,7 @@
 <?php				if ($event['Event']['calendar_id'] == 1) continue; ?>
 					<div class="intra-dialog" id="event<?php echo $event['Event']['id']; ?>-dialog">
 						<h1><?php echo $event['Event']['title']; ?></h1>
-						<h3><?php echo $this->Util->date_duration($event['Event']['start_time'], $event['Event']['end_time']); ?></h3>
+						<h4><?php echo $this->Util->date_duration($event['Event']['start_time'], $event['Event']['end_time']); ?></h4>
 						<p>
 							<strong>Posted by <?php echo $event['Profile']['full_name']; ?></strong>
 						</p>

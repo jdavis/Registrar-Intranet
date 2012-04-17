@@ -184,32 +184,43 @@ class CalendarsController extends AppController {
 		# their respective days for the view.
 		for($f = 0, $e = 0; $f < $total_days; $f++) {
 			$days[$f] = array();
+			$g = 0;
+			while ($g < count($extra_days)){
+				$day_start = date("Y-m-d H:i:s", mktime(0, 0, 0, $month, $f + 1, $year));
+				$day_end = date("Y-m-d H:i:s", mktime(-1, -1, -1, $month, $f + 2, $year));
+				if($extra_days[$g]['Event']['end_time'] > $day_start):
+					array_push($days[$f], $extra_days[$g]);
+				endif;
+				
+				$g++;
+			}
+			
 			# Only loop through if we have some events left.
 			while($e < count($events)) {
 				$day_start = date("Y-m-d H:i:s", mktime(0, 0, 0, $month, $f + 1, $year));
 				$day_end = date("Y-m-d H:i:s", mktime(-1, -1, -1, $month, $f + 2, $year));
 				
-				$event = $events[$e]['Event'];
+				$event = $events[$e]['Event'];									
 				
-				// if($e != 0){
-					// if ($events[$e-1]['end_time'] >= $day_start):	
-						// array_push($days[$f], $events[$e-1]);
-						
-					// endif;					
-				// }
 				# See if the next event on the array starts during this day.
 				if ($event['start_time'] >= $day_start && $event['start_time'] <= $day_end) {
 					# It was a match, add it to the array for the day.
 					array_push($days[$f], $events[$e]);
-				
+					
+					#Check to see if the event extends past just one day, if so add to array of extra days
+					if($event['end_time'] >= $day_end):
+					 array_push($extra_days, $events[$e]);
+					endif;
+					
 					# Increase the event index.
-					$e += 1;
+					$e++;
 				} else {
 					break;
 				}
 			}
+			
+
 		}
-		
 		return $days;
 	}
 }
