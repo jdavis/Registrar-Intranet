@@ -42,9 +42,6 @@
 		<?php echo $this->element('weather', array('cache'=>'15 min'));?>
 		<h2>Staff of the Day</h2>
 		<?php echo $this->element('sotd');?>
-		<h2><a href="/announcements/view/91">Important Information</a></h2>
-		<h3>VEISHEA (April 16-21)</h3>
-		<p><strong></br><a href="http://www.veishea.iastate.edu/">http://www.veishea.iastate.edu/</a></br></br></br></strong></p>
 		<h2><a href="/quotes/">Quote of the Day</a></h2>
 		<?php echo $this->element('quote');?>
 		<h2><a href="/words/">Word of the Day</a></h2>
